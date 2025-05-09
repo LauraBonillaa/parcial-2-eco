@@ -1,6 +1,9 @@
 import { navigateTo, socket } from "../app.js";
 
 export default function renderScreen2(data) {
+  // Limpiar listeners anteriores
+  socket.off("players-update");
+  
   const app = document.getElementById("app");
   app.innerHTML = `
         <div id="screen2" class="final-results-container">
@@ -27,8 +30,8 @@ export default function renderScreen2(data) {
   let currentSort = "score"; // "score" o "alphabetical"
 
 
-  // Escuchar actualizaciones de jugadores
-  socket.on("players-update", (players) => {
+  // Escuchar actualizaciones de jugadores solo una vez
+  socket.once("players-update", (players) => {
     console.log("Recibida actualización de jugadores en screen2:", players);
     currentPlayers = [...players];
     sortPlayers();

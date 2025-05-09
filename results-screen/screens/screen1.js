@@ -13,9 +13,6 @@ export default function renderScreen1() {
 
   const playersList = document.getElementById("players-list");
 
-  // Limpiar listeners anteriores
-  socket.off("players-update");
-  socket.off("userJoined");
 
   // Escuchar actualizaciones de jugadores
   socket.on("players-update", (players) => {
