@@ -60,7 +60,6 @@ async function makeRequest(url, method, body) {
     return result;
   } catch (error) {
     console.error("API request failed:", error);
-    // Return a failed response object that can be checked by callers
     return { success: false, error: error.message };
   }
 }

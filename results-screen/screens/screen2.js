@@ -91,10 +91,7 @@ export default function renderScreen2(data) {
     sortPlayers();
   });
 
-
-  // Solicitar datos iniciales
   socket.emit("get-players");
 
-  // Mostrar lista inicial ordenada por puntuación
   sortPlayers();
 }

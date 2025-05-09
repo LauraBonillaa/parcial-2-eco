@@ -61,7 +61,7 @@ export default function renderScreen1() {
   console.log("Solicitando datos iniciales de jugadores...");
   socket.emit("get-players");
 
-  // También solicitar datos cuando el socket se reconecte
+ 
   socket.on("connect", () => {
     console.log("Socket reconectado, solicitando datos...");
     socket.emit("get-players");

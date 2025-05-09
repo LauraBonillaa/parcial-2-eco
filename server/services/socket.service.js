@@ -70,7 +70,7 @@ const initSocketInstance = (httpServer) => {
       console.log("Reinicio del juego solicitado");
       playersDb.resetGame();
       
-      // Obtener todos los jugadores activos
+      
       const players = playersDb.getAllPlayers();
       
       // Emitir evento de reinicio a cada jugador
@@ -83,14 +83,14 @@ const initSocketInstance = (httpServer) => {
         }
       });
 
-      // Emitir actualización general
+     
       emitEvent("players-update", players);
     });
 
-    // Manejar desconexión
+    
     socket.on("disconnect", () => {
       console.log("Cliente desconectado:", socket.id);
-      // Aquí podrías implementar la lógica para remover al jugador si lo deseas
+      
     });
   });
 };
